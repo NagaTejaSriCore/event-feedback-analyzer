@@ -309,7 +309,7 @@ event-feedback-analyzer
 ### 1 Clone the Repository
 
 
-git clone https://github.com/YOUR_USERNAME/event-feedback-analyzer.git
+git clone https://github.com/NagaTejaSriCore/event-feedback-analyzer.git
 
 
 ### 2 Go to the Project Folder
