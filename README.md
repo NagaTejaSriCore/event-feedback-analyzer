@@ -70,7 +70,7 @@ event-feedback-analyzer
 ### 1. Clone the repository
 
 
-git clone https://github.com/YOUR_USERNAME/event-feedback-analyzer.git
+git clone https://github.com/NagaTejaSriCore/event-feedback-analyzer.git
 
 
 ### 2. Navigate to project folder
