@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FeedbackLens — AI Event Analyzer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">FeedbackLens</span>
+        <span class="logo-badge">AI</span>
+      </div>
+      <p class="header-tagline">Event Intelligence, Instantly.</p>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="hero">
+      <h1 class="hero-title">
+        Turn Attendee Feedback<br/>
+        <span class="gradient-text">Into Actionable Insights</span>
+      </h1>
+      <p class="hero-sub">
+        Paste your event feedback below and let AI surface themes, sentiments,
+        complaints, and improvement opportunities — in seconds.
+      </p>
+    </section>
+
+    <section class="input-section">
+      <div class="card input-card">
+        <div class="card-header">
+          <span class="card-icon">✦</span>
+          <h2>Paste Feedback Responses</h2>
+          <span class="entry-count" id="entryCount">0 entries detected</span>
+        </div>
+        <p class="input-hint">
+          Separate individual responses with a blank line, or number them (1. 2. 3. …)
+        </p>
+        <textarea
+          id="feedbackInput"
+          placeholder="1. The keynote was fantastic and very inspiring…
+
+2. Registration was slow but the sessions were well-organized…
+
+3. Loved the networking breaks! Would love more food options next time…"
+        ></textarea>
+        <div class="input-actions">
+          <button class="btn-clear" id="clearBtn">Clear</button>
+          <button class="btn-analyze" id="analyzeBtn">
+            <span class="btn-icon">⚡</span>
+            Analyze Feedback
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="loader-wrap" id="loaderWrap" hidden>
+      <div class="loader-ring"></div>
+      <p class="loader-text">Analyzing with AI…</p>
+    </div>
+    <div class="error-banner" id="errorBanner" hidden>
+        <span id="errorMsg"></span>
+    </div>
+    
+    <section class="results" id="results" hidden>
+
+      <div class="summary-bar" id="summaryBar"></div>
+
+      <div class="stats-row">
+        <div class="stat-card" id="statTotal">
+          <span class="stat-num">—</span>
+          <span class="stat-label">Responses</span>
+        </div>
+        <div class="stat-card positive" id="statPos">
+          <span class="stat-num">—</span>
+          <span class="stat-label">Positive</span>
+        </div>
+        <div class="stat-card neutral" id="statNeu">
+          <span class="stat-num">—</span>
+          <span class="stat-label">Neutral</span>
+        </div>
+        <div class="stat-card negative" id="statNeg">
+          <span class="stat-num">—</span>
+          <span class="stat-label">Negative</span>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card chart-card">
+          <div class="card-header">
+            <span class="card-icon">◉</span>
+            <h2>Sentiment Distribution</h2>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="sentimentChart"></canvas>
+          </div>
+          <div class="chart-legend" id="chartLegend"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-icon">⬡</span>
+            <h2>Main Themes</h2>
+          </div>
+          <ul class="theme-list" id="themeList"></ul>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card positives-card">
+          <div class="card-header">
+            <span class="card-icon">★</span>
+            <h2>Positive Highlights</h2>
+          </div>
+          <ul class="insight-list" id="positiveList"></ul>
+        </div>
+
+        <div class="card complaints-card">
+          <div class="card-header">
+            <span class="card-icon">⚑</span>
+            <h2>Common Complaints</h2>
+          </div>
+          <ul class="insight-list" id="complaintList"></ul>
+        </div>
+      </div>
+
+      <div class="card suggestions-card">
+        <div class="card-header">
+          <span class="card-icon">➤</span>
+          <h2>Improvement Suggestions</h2>
+        </div>
+        <div class="suggestions-grid" id="suggestionGrid"></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+            <span class="card-icon">✧</span>
+            <h2>Top Feedback Keywords</h2>
+        </div>
+        <ul class="keyword-list" id="keywordList"></ul>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>FeedbackLens · Powered by AI &amp; Flask · Built for smarter events</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
