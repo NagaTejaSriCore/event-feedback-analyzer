@@ -139,9 +139,9 @@ Instead of manually reading each response, they paste the feedback into the appl
 ## Future Improvements
 
 - Word cloud visualization
-- Export report as PDF
+
 - User authentication system
-- Support for uploading CSV or Excel feedback files
+- Excel feedback files
 
 ---
 
