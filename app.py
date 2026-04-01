@@ -6,18 +6,23 @@ Uses Cohere API to analyze event feedback responses.
 import json
 import re
 import traceback
-import cohere
+import os
 from flask import Flask, render_template, request, jsonify
+from cohere import ClientV2
+from dotenv import load_dotenv
 
+# ── Load environment variables ───────────────────────────────────────────────
+load_dotenv()
+COHERE_API_KEY = os.environ.get("COHERE_API_KEY")
+if not COHERE_API_KEY:
+    raise ValueError("Please set COHERE_API_KEY in your .env file.")
+
+co = ClientV2(api_key=COHERE_API_KEY)
+
+# ── Flask App ──────────────────────────────────────────────────────────────
 app = Flask(__name__)
 
-# ── Configure Cohere ─────────────────────────────────────────────────────────
-COHERE_API_KEY = "JZu9CfqlEOlYGs8ADdMUGInwwjOEpGZzNjYsY7XP"  # Replace with your Cohere API key
-co = cohere.ClientV2(api_key=COHERE_API_KEY)
-
-
-# ── Routes ───────────────────────────────────────────────────────────────────
-
+# ── Routes ──────────────────────────────────────────────────────────────────
 @app.route("/")
 def index():
     """Serve the main dashboard page."""
@@ -138,7 +143,6 @@ Feedback:
         return jsonify({"error": str(e)}), 500
 
 
-# ── Entry Point ───────────────────────────────────────────────────────────────
-
+# ── Entry Point ─────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
