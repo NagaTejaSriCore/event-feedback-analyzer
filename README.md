@@ -144,11 +144,10 @@ Instead of manually reading each response, they paste the feedback into the appl
 
 ## Future Improvements
 
-- Word cloud visualization
-
-- User authentication system
-- Excel feedback files
-
+-Word cloud visualization for better feedback insights
+- Support for uploading Excel or CSV feedback files
+- User authentication for organizers
+- Export analysis report as PDF
 ---
 
 ## Author
