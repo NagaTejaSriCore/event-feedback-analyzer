@@ -89,7 +89,9 @@ cd event-feedback-analyzer
 
 
 pip install flask
+
 pip install cohere
+
 pip install python-dotenv
 
 
