@@ -125,7 +125,7 @@ python app.py
 ### 6. Open in browser
 
 
-https://event-feedback-analyzer-lsjc.onrender.com
+http://127.0.0.1:5000
 
 
 ---
