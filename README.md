@@ -57,16 +57,28 @@ Visualization:
 
 event-feedback-analyzer
 │
+
 ├── app.py
+
 ├── README.md
+
 ├── .gitignore
+
 ├── .env (not uploaded to GitHub)
+
 │
+
 ├── templates
+
 │ └── index.html
+
 │
+
 └── static
-└── index.css
+
+   └── index.css
+   
+   └── index.js
 
 
 ---
