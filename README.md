@@ -1,5 +1,11 @@
 # AI Event Feedback Analyzer
 
+## Live Demo
+
+You can access the live application here:
+
+https://event-feedback-analyzer-lsjc.onrender.com
+
 ## Project Overview
 AI Event Feedback Analyzer is a web application that helps event organizers automatically analyze feedback collected from attendees. Instead of manually reading dozens of responses, the system uses AI to extract insights, detect sentiment, and summarize key themes from feedback.
 
